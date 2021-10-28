@@ -54,42 +54,18 @@ class CreateAccountModel: ObservableObject {
             return
         }
         
+        if let _ = CoreDataManager.sharedManager.fetchUserByEmail(user.email) {
+            error("Email already exists")
+            return
+        }
+        
+        saveUser()
         success()
+        return
     }
     
-    func saveUserInCoreData(error: (String) -> (), success: () -> ()){
-        guard user.email.isValidEmail else {
-            error("Email is not valid.")
-            return
-        }
-        
-        CoreDataManager.sharedManager.saveCurrentUser(user)
-        
-        guard !user.name.isEmpty else {
-            error("Name label is not entered.")
-            return
-        }
-        guard !user.surname.isEmpty else {
-            error("Surname is not entered")
-            return
-        }
-        
-        guard user.password.isValidPassword else {
-            error("Password is not valid. Your password shoud contain 8 cherecters, A-Z,a-z,0-9, .!")
-            return
-        }
-        
-        guard user.password == user.repassword else {
-            error("Password and Re-password don't metch.")
-            return
-        }
-        
-        guard user.gender != nil else {
-            error("Select gender!.")
-            return
-        }
-        
-        success()
+    private func saveUser() {
+        UserManager.sharedInstance.save(user)
     }
 }
 

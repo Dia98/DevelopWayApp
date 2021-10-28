@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var userIslogged: Bool {
+        if let _ = UserManager.sharedInstance.getCurrentUser() {
+            return true
+        }
+        return false
+    }
+    
     var body: some View {
-        HomeView()
+        if userIslogged {
+            ProfileView()
+        } else {
+            HomeView()
+        }
     }
 }
 

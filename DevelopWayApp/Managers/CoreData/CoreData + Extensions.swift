@@ -24,7 +24,7 @@ extension CoreDataManager {
         let managedContext = getManagedObjectContext()
 
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
-        let predicate = NSPredicate(format: "email = %@",id)
+        let predicate = NSPredicate(format: "email = %@", email)
 
         request.predicate = predicate
         do{
@@ -89,13 +89,30 @@ extension CoreDataManager {
         save()
     }
     
-    func getCurrentUser() -> UserEntity? {
+    func fetchUserByEmail(_ email: String) -> UserEntity? {
+        
+        let managedContext = getManagedObjectContext()
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        let predicate = NSPredicate(format: "email = %@", email)
+        
+        request.predicate = predicate
+        do{
+            let users = try managedContext.fetch(request) as! [UserEntity]
+            return users.first
+        }
+        catch let error as NSError {
+            print("UserEntity fetch by email, error: \(error)")
+            return nil
+        }
+    }
+    
+    func getCurrentUsers() -> [UserEntity]?  {
         let managedContext = getManagedObjectContext()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
         
         do{
             let users = try managedContext.fetch(request) as? [UserEntity]
-            return users?.first
+            return users
         }
         
         catch let error as NSError {

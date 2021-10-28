@@ -31,6 +31,7 @@
 		DCB1E70C2723C82D00196BCD /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E70B2723C82D00196BCD /* String + Extensions.swift */; };
 		DCB1E70E2723EBB600196BCD /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E70D2723EBB600196BCD /* AlertView.swift */; };
 		DCB1E7102723F70800196BCD /* UINavigationController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E70F2723F70800196BCD /* UINavigationController + Extensions.swift */; };
+		DCB1E713272ABAD800196BCD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E712272ABAD800196BCD /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		DCB1E70B2723C82D00196BCD /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		DCB1E70D2723EBB600196BCD /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DCB1E70F2723F70800196BCD /* UINavigationController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extensions.swift"; sourceTree = "<group>"; };
+		DCB1E712272ABAD800196BCD /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		DC7683B1271A8BF50093CA7C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DCB1E711272ABAB000196BCD /* UserManager */,
 				DC7683AF271A8BCF0093CA7C /* CoreData */,
 			);
 			path = Managers;
@@ -249,6 +252,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DCB1E711272ABAB000196BCD /* UserManager */ = {
+			isa = PBXGroup;
+			children = (
+				DCB1E712272ABAD800196BCD /* UserManager.swift */,
+			);
+			path = UserManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +350,7 @@
 				DC7683CD271CAE8C0093CA7C /* ViewModifiers.swift in Sources */,
 				DCB1E70C2723C82D00196BCD /* String + Extensions.swift in Sources */,
 				DC7683B3271A8C440093CA7C /* CoreDataManager.swift in Sources */,
+				DCB1E713272ABAD800196BCD /* UserManager.swift in Sources */,
 				DC76839F2719B4D70093CA7C /* DevelopWayApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

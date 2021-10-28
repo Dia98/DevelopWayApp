@@ -27,7 +27,7 @@ class RegisteredInfo: ObservableObject {
     @Published var id: Int = 0
     var createdDate: Date?
     
-    private var birthdayFlag = false
+    var birthdayFlag = false
     
     init(name: String, surname: String, gender: Gender?, birthday: Date, email: String ,password: String, repassword: String) {
         

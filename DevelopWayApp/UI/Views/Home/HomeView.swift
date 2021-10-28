@@ -20,7 +20,6 @@ struct HomeView: View {
                 Color.darkBlue
                     .edgesIgnoringSafeArea(.all)
                 
-                
                 VStack {
                     Spacer()
                     loginView
@@ -42,7 +41,7 @@ struct HomeView: View {
                 
                 TextField("", text: $email)
                     .placeholder(when: email.isEmpty) {
-                            Text("Email").foregroundColor(.inertBlue)
+                        Text("Email").foregroundColor(.inertBlue)
                     }
                     .foregroundColor(.neoCyan)
             }
@@ -56,7 +55,7 @@ struct HomeView: View {
                 
                 TextField("", text: $password)
                     .placeholder(when: password.isEmpty) {
-                            Text("Password").foregroundColor(.inertBlue)
+                        Text("Password").foregroundColor(.inertBlue)
                     }
                     .foregroundColor(.neoCyan)
             }

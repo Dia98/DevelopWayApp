@@ -10,25 +10,12 @@ import SwiftUI
 struct CreateAccountView: View {
     @ObservedObject private var model: CreateAccountModel = CreateAccountModel()
     
-    @State private var password: String = ""
-    @State private var rePassword: String = ""
-    
-    @State private var isShowPhotoLibrary_ = false
     @State private var isShowPhotoLibrary = false
+    @State private var showImageSheet = false
     
     @State private var goNext: Bool = false
     
-    @State var alert: AlertItem?
-    
-    static var uniqueKey: String {
-        UUID().uuidString
-    }
-    
-    private let options: [DropdownOption] = [
-        DropdownOption(key: uniqueKey, value: "Male"),
-        DropdownOption(key: uniqueKey, value: "Female"),
-        DropdownOption(key: uniqueKey, value: "Other")
-    ]
+    @State private var alert: AlertItem?
     
     var body: some View {
         ZStack {
@@ -89,7 +76,7 @@ struct CreateAccountView: View {
     }
     
     private func configurationUI() {
-        UIDatePicker.appearance().backgroundColor = UIColor.inertBlue // changes bg color
+        UIDatePicker.appearance().backgroundColor = UIColor.inertBlue
         UIDatePicker.appearance().tintColor = UIColor.darkBlue
     }
     
@@ -143,15 +130,14 @@ struct CreateAccountView: View {
         .foregroundColor(.inertBlue)
         .padding(.bottom, 40)
         .onTapGesture {
-            isShowPhotoLibrary.toggle()
-//            model.showImageSheet.toggle()
+            showImageSheet.toggle()
         }
-        .modifier(PhotoPick(showSheet: $isShowPhotoLibrary, pickerShow: $isShowPhotoLibrary_, completionHandler: didSelectImage, preferFrontCam: false))
+        .modifier(PhotoPick(showSheet: $showImageSheet, pickerShow: $isShowPhotoLibrary, completionHandler: didSelectImage, preferFrontCam: false))
     }
     
     private func didSelectImage(_ uiimage: UIImage?, _ url: URL?) {
-        isShowPhotoLibrary_ = false
         isShowPhotoLibrary = false
+                    showImageSheet = false
         model.didSelectImage(uiimage, url)
     }
     
@@ -197,14 +183,24 @@ struct CreateAccountView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 3)
+            .foregroundColor(model.user.birthdayFlag ? .neoCyan : .inertBlue)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.inertBlue, lineWidth: 2)
             )
         }
         .foregroundColor(.inertBlue)
-        .accentColor(.inertBlue)
     }
+    
+    static private var uniqueKey: String {
+        UUID().uuidString
+    }
+    
+    private let options: [DropdownOption] = [
+        DropdownOption(key: uniqueKey, value: "Male"),
+        DropdownOption(key: uniqueKey, value: "Female"),
+        DropdownOption(key: uniqueKey, value: "Other")
+    ]
     
     private var genderSelector: some View {
         DropdownSelector(
