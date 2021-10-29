@@ -38,6 +38,7 @@
 		DCB1E71D272BDAA000196BCD /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71C272BDAA000196BCD /* UserState.swift */; };
 		DCB1E71F272BE82000196BCD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71E272BE82000196BCD /* HomeViewModel.swift */; };
 		DCB1E742272C4CE400196BCD /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DCB1E741272C4CE400196BCD /* SwiftUICharts */; };
+		DCB1E744272C7FD300196BCD /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E743272C7FD300196BCD /* SecureInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		DCB1E71A272BD99000196BCD /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		DCB1E71C272BDAA000196BCD /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		DCB1E71E272BE82000196BCD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		DCB1E743272C7FD300196BCD /* SecureInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				DC7683D3271DF20B0093CA7C /* Dropdown.swift */,
 				DCB1E70D2723EBB600196BCD /* AlertView.swift */,
+				DCB1E743272C7FD300196BCD /* SecureInputView.swift */,
 			);
 			path = SupportView;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				DC7683CA271CAE6F0093CA7C /* TextFieldModifiers.swift in Sources */,
 				DCB1E719272BD71400196BCD /* Notifications + Extensions.swift in Sources */,
 				DCB1E71B272BD99000196BCD /* ContentViewModel.swift in Sources */,
+				DCB1E744272C7FD300196BCD /* SecureInputView.swift in Sources */,
 				DCB1E71F272BE82000196BCD /* HomeViewModel.swift in Sources */,
 				DC76839A2719B4D70093CA7C /* SceneDelegate.swift in Sources */,
 				DCB1E707271F570100196BCD /* PhotoPick.swift in Sources */,

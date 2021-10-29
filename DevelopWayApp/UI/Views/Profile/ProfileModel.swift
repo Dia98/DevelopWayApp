@@ -55,7 +55,7 @@ class ProfileModel: ObservableObject {
                                        yAxisGridStyle     : gridStyle,
                                        yAxisLabelPosition : .leading,
                                        yAxisNumberOfLabels: 11,
-                                       baseline: .minimumValue,
+                                       baseline: .zero,
                                        topLine: .maximum(of: 100))
         
         return RangedBarChartData(dataSets: data,

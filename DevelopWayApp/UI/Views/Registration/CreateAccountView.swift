@@ -101,13 +101,13 @@ struct CreateAccountView: View {
     
     private var passwordfieldsView: some View {
         Group {
-            TextField("", text: $model.user.password)
+            SecureInputView("", text: $model.user.password)
                 .placeholder(when: model.user.password.isEmpty) {
                     Text("Password").foregroundColor(.inertBlue)
                 }
                 .modifier(TextFieldWithIcon(imageName: "key", trailingPadding: 5))
             
-            TextField("", text: $model.user.repassword)
+            SecureInputView("", text: $model.user.repassword)
                 .placeholder(when: model.user.repassword.isEmpty) {
                     Text("Re-Password").foregroundColor(.inertBlue)
                 }

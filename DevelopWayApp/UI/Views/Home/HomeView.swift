@@ -56,7 +56,7 @@ struct HomeView: View {
                     .foregroundColor(.inertBlue)
                     .padding(.trailing, 8)
                 
-                TextField("", text: $model.password)
+                SecureInputView("", text: $model.password)
                     .placeholder(when: model.password.isEmpty) {
                         Text("Password").foregroundColor(.inertBlue)
                     }
