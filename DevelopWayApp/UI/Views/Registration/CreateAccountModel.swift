@@ -17,6 +17,8 @@ class CreateAccountModel: ObservableObject {
     @Published var showImageSheet: Bool = false
     @Published var isPresentingImagePicker: Bool = false
     
+    @Published var profileModel: ProfileModel = ProfileModel.init(entity: nil)
+    
     func didSelectImage(_ uiimage: UIImage?, _ url: URL?) {
         if let image = uiimage {
             selectedProfileImage = image

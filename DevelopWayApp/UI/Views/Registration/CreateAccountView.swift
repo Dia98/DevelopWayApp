@@ -43,17 +43,9 @@ struct CreateAccountView: View {
         .setupAlert($alert)
     }
     
-    private var profileModel: ProfileModel {
-        if let user = UserManager.sharedInstance.getCurrentUser() {
-            return ProfileModel.init(entity: user)
-        } else {
-            return ProfileModel.init(entity: nil)
-        }
-    }
-    
     private var createButton: some View {
         NavigationLink(
-            destination: ProfileView(model: profileModel),
+            destination: ProfileView(model: model.profileModel),
             isActive: $goNext,
             label: {
                 HStack {
@@ -79,7 +71,8 @@ struct CreateAccountView: View {
         model.validate { errortext in
             alert = AlertItem(message: errortext)
         } success: {
-            if UserManager.sharedInstance.getCurrentUser() != nil {
+            if let user = UserManager.sharedInstance.getCurrentUser() {
+                model.profileModel = ProfileModel.init(entity: user)
                 goNext.toggle()
             }
         }
