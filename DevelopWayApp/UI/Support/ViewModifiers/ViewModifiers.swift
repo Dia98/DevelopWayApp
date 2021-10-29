@@ -67,3 +67,16 @@ struct TextFieldWithIcon : ViewModifier {
         }
     }
 }
+
+struct TitleTextModifier : ViewModifier {
+    var title: String
+    func body(content: Content) -> some View {
+        HStack {
+            Text("\(title)")
+                .foregroundColor(.inertBlue)
+            
+            content
+                .foregroundColor(.neoCyan)
+        }
+    }
+}

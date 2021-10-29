@@ -17,6 +17,7 @@ extension CoreDataManager {
         let surname = model.surname
         let birthday = model.birthday
         let email = model.email
+        let gender = model.gender?.rawValue ?? "Female"
         let createdDate = model.createdDate
         let password = model.password
         let imageURL = model.imageUrl
@@ -39,6 +40,7 @@ extension CoreDataManager {
                 user.surname = surname
                 user.birthday = birthday
                 user.email = email
+                user.gender = gender
                 user.createdDate = createdDate
                 user.password = password
                 user.imageURL = imageURL
@@ -51,6 +53,7 @@ extension CoreDataManager {
                 user?.surname = surname
                 user?.birthday = birthday
                 user?.email = email
+                user?.gender = gender
                 user?.createdDate = createdDate
                 user?.password = password
                 user?.imageURL = imageURL

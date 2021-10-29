@@ -20,6 +20,7 @@ class UserManager : NSObject {
     func login(email: String, password: String, error: (String) -> (), success: () -> ()) {
         if let user = CoreDataManager.sharedManager.fetchUserByEmail(email) {
             if user.password == password {
+                saveLoggedUser(user)
                 success()
                 return
             } else {
@@ -43,14 +44,20 @@ class UserManager : NSObject {
         return nil
     }
     
-    func save(_ user: RegisteredInfo) {
+    private func saveLoggedUser(_ user: UserEntity) {
+        UserDefaults.standard.set(user.email, forKey: UserManager.keyString)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func saveNewUser(_ user: RegisteredInfo) {
         CoreDataManager.sharedManager.saveCurrentUser(user)
         UserDefaults.standard.set(user.email, forKey: UserManager.keyString)
         UserDefaults.standard.synchronize()
     }
     
-    func delete() {
+    private func delete() {
         UserDefaults.standard.set(nil, forKey: UserManager.keyString)
         UserDefaults.standard.synchronize()
+        NotificationCenter.default.post(name: NSNotification.Name.activeUserDidChanged, object: nil)
     }
 }

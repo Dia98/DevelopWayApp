@@ -32,6 +32,11 @@
 		DCB1E70E2723EBB600196BCD /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E70D2723EBB600196BCD /* AlertView.swift */; };
 		DCB1E7102723F70800196BCD /* UINavigationController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E70F2723F70800196BCD /* UINavigationController + Extensions.swift */; };
 		DCB1E713272ABAD800196BCD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E712272ABAD800196BCD /* UserManager.swift */; };
+		DCB1E715272B5B1600196BCD /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E714272B5B1600196BCD /* ProfileModel.swift */; };
+		DCB1E719272BD71400196BCD /* Notifications + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E718272BD71400196BCD /* Notifications + Extensions.swift */; };
+		DCB1E71B272BD99000196BCD /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71A272BD99000196BCD /* ContentViewModel.swift */; };
+		DCB1E71D272BDAA000196BCD /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71C272BDAA000196BCD /* UserState.swift */; };
+		DCB1E71F272BE82000196BCD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71E272BE82000196BCD /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +67,11 @@
 		DCB1E70D2723EBB600196BCD /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		DCB1E70F2723F70800196BCD /* UINavigationController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extensions.swift"; sourceTree = "<group>"; };
 		DCB1E712272ABAD800196BCD /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		DCB1E714272B5B1600196BCD /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		DCB1E718272BD71400196BCD /* Notifications + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notifications + Extensions.swift"; sourceTree = "<group>"; };
+		DCB1E71A272BD99000196BCD /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		DCB1E71C272BDAA000196BCD /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		DCB1E71E272BE82000196BCD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				DC7683B9271A91020093CA7C /* Gender.swift */,
+				DCB1E71C272BDAA000196BCD /* UserState.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				DC76839B2719B4D70093CA7C /* ContentView.swift */,
+				DCB1E71A272BD99000196BCD /* ContentViewModel.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -194,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				DC7683C1271BF8710093CA7C /* HomeView.swift */,
+				DCB1E71E272BE82000196BCD /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -211,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				DC7683C3271C902C0093CA7C /* ProfileView.swift */,
+				DCB1E714272B5B1600196BCD /* ProfileModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -248,6 +262,7 @@
 				DC7683CF271D504E0093CA7C /* View + Extensions.swift */,
 				DCB1E70B2723C82D00196BCD /* String + Extensions.swift */,
 				DCB1E70F2723F70800196BCD /* UINavigationController + Extensions.swift */,
+				DCB1E718272BD71400196BCD /* Notifications + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,8 +353,12 @@
 				DC7683B7271A8F810093CA7C /* RegisteredInfo.swift in Sources */,
 				DC7683D4271DF20B0093CA7C /* Dropdown.swift in Sources */,
 				DC7683CA271CAE6F0093CA7C /* TextFieldModifiers.swift in Sources */,
+				DCB1E719272BD71400196BCD /* Notifications + Extensions.swift in Sources */,
+				DCB1E71B272BD99000196BCD /* ContentViewModel.swift in Sources */,
+				DCB1E71F272BE82000196BCD /* HomeViewModel.swift in Sources */,
 				DC76839A2719B4D70093CA7C /* SceneDelegate.swift in Sources */,
 				DCB1E707271F570100196BCD /* PhotoPick.swift in Sources */,
+				DCB1E71D272BDAA000196BCD /* UserState.swift in Sources */,
 				DC7683D0271D504E0093CA7C /* View + Extensions.swift in Sources */,
 				DC7683D2271DA4B70093CA7C /* CreateAccountView.swift in Sources */,
 				DCB1E705271EF35800196BCD /* CreateAccountModel.swift in Sources */,
@@ -349,6 +368,7 @@
 				DC76839C2719B4D70093CA7C /* ContentView.swift in Sources */,
 				DC7683CD271CAE8C0093CA7C /* ViewModifiers.swift in Sources */,
 				DCB1E70C2723C82D00196BCD /* String + Extensions.swift in Sources */,
+				DCB1E715272B5B1600196BCD /* ProfileModel.swift in Sources */,
 				DC7683B3271A8C440093CA7C /* CoreDataManager.swift in Sources */,
 				DCB1E713272ABAD800196BCD /* UserManager.swift in Sources */,
 				DC76839F2719B4D70093CA7C /* DevelopWayApp.xcdatamodeld in Sources */,

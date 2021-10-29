@@ -9,16 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var userIslogged: Bool {
-        if let _ = UserManager.sharedInstance.getCurrentUser() {
-            return true
+    @ObservedObject var model = ContentViewModel()
+    
+    private var profileModel: ProfileModel {
+        if let user = UserManager.sharedInstance.getCurrentUser() {
+            return ProfileModel.init(entity: user)
+        } else {
+            return ProfileModel.init(entity: nil)
         }
-        return false
     }
     
     var body: some View {
-        if userIslogged {
-            ProfileView()
+        if model.userState == .loggedIn {
+            ProfileView(model: profileModel)
         } else {
             HomeView()
         }

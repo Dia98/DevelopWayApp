@@ -65,7 +65,7 @@ class CreateAccountModel: ObservableObject {
     }
     
     private func saveUser() {
-        UserManager.sharedInstance.save(user)
+        UserManager.sharedInstance.saveNewUser(user)
     }
 }
 

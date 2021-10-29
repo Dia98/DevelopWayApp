@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @ObservedObject private var model: HomeViewModel = HomeViewModel()
     
     @State private var loginto: Bool = false
+    @State private var alert: AlertItem?
     
     var body: some View {
         NavigationView {
@@ -22,14 +21,17 @@ struct HomeView: View {
                 
                 VStack {
                     Spacer()
+                    
                     loginView
+                    
                     Spacer()
+                    
                     createNewView
                 }
                 .padding(.horizontal)
             }
         }
-        
+        .setupAlert($alert)
     }
     
     var loginView: some View {
@@ -39,10 +41,11 @@ struct HomeView: View {
                     .font(.system(size: 20))
                     .foregroundColor(.inertBlue)
                 
-                TextField("", text: $email)
-                    .placeholder(when: email.isEmpty) {
+                TextField("", text: $model.email)
+                    .placeholder(when: model.email.isEmpty) {
                         Text("Email").foregroundColor(.inertBlue)
                     }
+                    .modifier(EmailModifier())
                     .foregroundColor(.neoCyan)
             }
             .modifier(RoundedModifier())
@@ -53,8 +56,8 @@ struct HomeView: View {
                     .foregroundColor(.inertBlue)
                     .padding(.trailing, 8)
                 
-                TextField("", text: $password)
-                    .placeholder(when: password.isEmpty) {
+                TextField("", text: $model.password)
+                    .placeholder(when: model.password.isEmpty) {
                         Text("Password").foregroundColor(.inertBlue)
                     }
                     .foregroundColor(.neoCyan)
@@ -62,7 +65,7 @@ struct HomeView: View {
             .modifier(RoundedModifier())
             
             NavigationLink(
-                destination: ProfileView(),
+                destination: ProfileView(model: model.profileModel),
                 isActive: $loginto,
                 label: {
                     HStack {
@@ -81,12 +84,18 @@ struct HomeView: View {
                     }
                 })
                 .padding(.vertical)
-            
         }
     }
     
     private func checkForLogin() {
-        loginto.toggle()
+        UserManager.sharedInstance.login(email: model.email, password: model.password) { errorText in
+            alert = AlertItem(message: errorText)
+        } success: {
+            if let user = UserManager.sharedInstance.getCurrentUser(){
+                model.profileModel = ProfileModel.init(entity: user)
+                loginto.toggle()
+            }
+        }
     }
     
     var createNewView: some View {
