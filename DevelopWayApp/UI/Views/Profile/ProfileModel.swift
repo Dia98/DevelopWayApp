@@ -7,12 +7,16 @@
 
 import Foundation
 import SwiftUI
+import SwiftUICharts
 
 class ProfileModel: ObservableObject {
     
     var user: User
     
     var profileImage: UIImage?
+    
+    @Published var chartInfo: [UserEntity] = [UserEntity]()
+    var chartData : RangedBarChartData = RangedBarChartData(dataSets: RangedBarDataSet(dataPoints: []))
     
     init(entity: UserEntity?) {
         if let info = entity {
@@ -21,6 +25,49 @@ class ProfileModel: ObservableObject {
             self.user = User()
         }
         tryGetImage()
+        fetchinfoforChart()
+        chartData = weekOfData()
+    }
+    
+    func weekOfData() -> RangedBarChartData {
+        let formatter = DateFormatter()
+        let data : RangedBarDataSet =
+            RangedBarDataSet(dataPoints: chartInfo.compactMap({ item in
+                
+                formatter.dateFormat = "dd/MM/yy hh:mm"
+                var x = ""
+                if let birthday = item.createdDate {
+                    x = formatter.string(from: birthday)
+                }
+                
+                return RangedBarDataPoint(lowerValue: 0, upperValue: Double(item.id), xAxisLabel: x, description: item.name, date: item.createdDate)
+            }),
+            legendTitle: "ID")
+        
+        let gridStyle  = GridStyle(numberOfLines: 11,
+                                   lineColour  : Color(.lightGray).opacity(0.25),
+                                   lineWidth   : 1)
+        
+        let chartStyle = BarChartStyle(infoBoxPlacement   : .infoBox(isStatic: false),
+                                       xAxisGridStyle     : gridStyle,
+                                       xAxisLabelPosition : .bottom,
+                                       xAxisLabelsFrom    : .dataPoint(rotation: .degrees(90)),
+                                       yAxisGridStyle     : gridStyle,
+                                       yAxisLabelPosition : .leading,
+                                       yAxisNumberOfLabels: 11,
+                                       baseline: .minimumValue,
+                                       topLine: .maximum(of: 100))
+        
+        return RangedBarChartData(dataSets: data,
+                                  metadata: ChartMetadata(title: "Users", subtitle: ""),
+                                  xAxisLabels: ["00:00", "12:00", "00:00"],
+                                  barStyle: BarStyle(barWidth: 0.75,
+                                                     cornerRadius: CornerRadius(top: 10, bottom: 10),
+                                                     colourFrom: .barStyle,
+                                                     colour: ColourStyle(colours: [Color.darkBlue,
+                                                          Color.neoCyan],
+                                                    startPoint: .bottom, endPoint: .top)),
+                                  chartStyle: chartStyle)
     }
     
     func tryGetImage() {
@@ -34,6 +81,14 @@ class ProfileModel: ObservableObject {
                     //ERROR
                 }
             }
+        }
+    }
+    
+    let formatter = DateFormatter()
+    
+    private func fetchinfoforChart() {
+        if let array = CoreDataManager.sharedManager.getUsers() {
+            chartInfo = array.sorted(by: { $0.createdDate?.compare($1.createdDate ?? Date()) == .orderedDescending })
         }
     }
 }

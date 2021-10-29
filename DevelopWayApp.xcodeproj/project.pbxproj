@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,6 +37,7 @@
 		DCB1E71B272BD99000196BCD /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71A272BD99000196BCD /* ContentViewModel.swift */; };
 		DCB1E71D272BDAA000196BCD /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71C272BDAA000196BCD /* UserState.swift */; };
 		DCB1E71F272BE82000196BCD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB1E71E272BE82000196BCD /* HomeViewModel.swift */; };
+		DCB1E742272C4CE400196BCD /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DCB1E741272C4CE400196BCD /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB1E742272C4CE400196BCD /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +293,9 @@
 			dependencies = (
 			);
 			name = DevelopWayApp;
+			packageProductDependencies = (
+				DCB1E741272C4CE400196BCD /* SwiftUICharts */,
+			);
 			productName = DevelopWayApp;
 			productReference = DC7683942719B4D70093CA7C /* DevelopWayApp.app */;
 			productType = "com.apple.product-type.application";
@@ -318,6 +323,9 @@
 				Base,
 			);
 			mainGroup = DC76838B2719B4D70093CA7C;
+			packageReferences = (
+				DCB1E740272C4CE400196BCD /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+			);
 			productRefGroup = DC7683952719B4D70093CA7C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -567,6 +575,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DCB1E740272C4CE400196BCD /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DCB1E741272C4CE400196BCD /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCB1E740272C4CE400196BCD /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DC76839D2719B4D70093CA7C /* DevelopWayApp.xcdatamodeld */ = {

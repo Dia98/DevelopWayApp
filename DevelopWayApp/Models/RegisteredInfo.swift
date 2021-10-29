@@ -45,9 +45,4 @@ class RegisteredInfo: ObservableObject {
     convenience init() {
         self.init(name: "", surname: "", gender: nil, birthday: Date(), email: "" ,password: "", repassword: "")
     }
-    
-    func createUniqueId() -> Int {
-        return Int.random(in: 0...100)
-    }
-    
 }

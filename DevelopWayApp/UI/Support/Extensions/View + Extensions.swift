@@ -34,3 +34,9 @@ extension View {
         }))
     }
 }
+
+extension View {
+    func randomButtonStyle() -> some View {
+        self.modifier(RandomButtonStyle())
+    }
+}

@@ -67,7 +67,30 @@ class CreateAccountModel: ObservableObject {
     }
     
     private func saveUser() {
+        generateUserID()
         UserManager.sharedInstance.saveNewUser(user)
+    }
+    
+    private func generateUserID() {
+        if let users = CoreDataManager.sharedManager.getUsers() {
+            var array: [Int] {
+                users.compactMap { item in
+                    Int(item.id)
+                }
+            }
+            
+            var uniqueId: Int?
+            while uniqueId == nil {
+                let randomInt = Int.random(in: 0...100)
+                
+                guard !array.contains(randomInt) else { continue }
+                uniqueId = randomInt
+            }
+            
+            if let id = uniqueId {
+                user.id = id
+            }
+        }
     }
 }
 

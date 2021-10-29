@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct ProfileView: View {
     
@@ -13,7 +14,7 @@ struct ProfileView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var showGraficView: Bool = false
+    @State private var displayGraficView: Bool = false
     
     var body: some View {
         ZStack {
@@ -34,9 +35,43 @@ struct ProfileView: View {
                 logoutView
             }
             .padding(.horizontal)
+            
+            if displayGraficView {
+                GeometryReader{ _ in
+                    chartView
+                        .padding(.vertical)
+                        .background(Color.white.cornerRadius(8))
+                        .padding(.horizontal)
+                        .padding(.vertical, 150)
+                }.background(
+                    Color.black.opacity(0.65)
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            displayGraficView = false
+                        }
+                )
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
+    
+    
+    
+    private var chartView: some View {
+        RangedBarChart(chartData: model.chartData)
+            .touchOverlay(chartData: model.chartData, specifier: "%.0f", unit: .suffix(of: "ID"))
+            .xAxisGrid(chartData: model.chartData)
+            .yAxisGrid(chartData: model.chartData)
+            .xAxisLabels(chartData: model.chartData)
+            .yAxisLabels(chartData: model.chartData)
+            .infoBox(chartData: model.chartData)
+            .headerBox(chartData: model.chartData)
+            .legends(chartData: model.chartData, columns: [GridItem(.flexible()), GridItem(.flexible())])
+            .id(model.chartData.id)
+            .frame(minWidth: 150, maxWidth: 900, minHeight: 150, idealHeight: 500, maxHeight: 600, alignment: .center)
+            .padding(.horizontal)
+    }
+    
     
     private var profileImage: some View {
         VStack {
@@ -112,7 +147,7 @@ struct ProfileView: View {
     
     private var graphicView: some View {
         Button(action: {
-            showGraficView.toggle()
+            displayGraficView.toggle()
         }) {
             HStack {
                 Text("Graphic Charts")
@@ -129,6 +164,25 @@ struct ProfileView: View {
             .padding(.bottom, 40)
         }
     }
+    
+//    func randomEntries() -> [ChartDataEntry] {
+//        var entries = [ChartDataEntry]()
+//        guard model.chartInfo.count > 0 else {
+//            return []
+//        }
+//        let formatter = DateFormatter()
+//        entries = model.chartInfo.compactMap({ item in
+//
+//            formatter.dateFormat = " dd/MM"
+//            var x = ""
+//            if let birthday = item.createdDate {
+//                x = formatter.string(from: birthday)
+//            }
+//
+//            return ChartDataEntry(x: x, y: Double(item.id))
+//        })
+//        return entries
+//    }
     
     private var logoutView: some View {
         Button(action: {

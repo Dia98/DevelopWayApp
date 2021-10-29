@@ -80,3 +80,12 @@ struct TitleTextModifier : ViewModifier {
         }
     }
 }
+
+struct RandomButtonStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(10)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
+    }
+}

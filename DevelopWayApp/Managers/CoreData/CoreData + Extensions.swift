@@ -18,7 +18,7 @@ extension CoreDataManager {
         let birthday = model.birthday
         let email = model.email
         let gender = model.gender?.rawValue ?? "Female"
-        let createdDate = model.createdDate
+        let createdDate = model.createdDate ?? Date()
         let password = model.password
         let imageURL = model.imageUrl
         
@@ -109,7 +109,7 @@ extension CoreDataManager {
         }
     }
     
-    func getCurrentUsers() -> [UserEntity]?  {
+    func getUsers() -> [UserEntity]?  {
         let managedContext = getManagedObjectContext()
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
         
