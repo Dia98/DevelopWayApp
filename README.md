@@ -1,1 +1,1 @@
-# DevelopWayApp
+# Registration screen (Test Task)
