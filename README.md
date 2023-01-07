@@ -1,3 +1,7 @@
-# Registration screen (Test Task)
+# Test Task: - Registration screen (DevelopWay)
 
-SwiftUI, Core Data
+Stack [SwiftUI, Core Data]
+
+# Test Task: - TabBar, Splash screen (SimplyTechnologies)
+
+Stack [SwiftUI]
