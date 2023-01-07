@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "act_unlock.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
