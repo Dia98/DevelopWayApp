@@ -6,6 +6,10 @@ Stack [SwiftUI, Core Data]
 
 Stack [SwiftUI]
 
-# Test Task: - (NextStack)
+# Test Task: - NY's News Table (NextStack)
 
 Stack [SwiftUI]
+
+# Test Task: - Users Table (Brainstorm)
+
+Stack [SwiftUI, SQLite, MapKit]
